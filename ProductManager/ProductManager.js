@@ -1,6 +1,24 @@
+const fs = require('fs');
+
 class ProductManager {
   constructor() {
-    this.products = [];
+    this.filePath = 'products.json';
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    try {
+      const data = fs.readFileSync(this.filePath, 'utf8');
+      this.products = JSON.parse(data);
+    } catch (error) {
+      this.products = [];
+    }
+  }
+
+  saveProducts() {
+    const data = JSON.stringify(this.products, null, 2);
+    console.log("Data to be saved:", data); 
+    fs.writeFileSync(this.filePath, data, 'utf8');
   }
 
   addProduct(product) {
@@ -16,6 +34,7 @@ class ProductManager {
 
     const id = this.generateUniqueId();
     this.products.push({ ...product, id });
+    this.saveProducts();
     console.log("Producto agregado con éxito:", { ...product, id });
   }
 
@@ -34,6 +53,28 @@ class ProductManager {
     } else {
       console.error("Producto no encontrado.");
       return null;
+    }
+  }
+
+  updateProduct(id, updatedProduct) {
+    const index = this.products.findIndex((p) => p.id === id);
+    if (index !== -1) {
+      this.products[index] = { ...this.products[index], ...updatedProduct, id };
+      this.saveProducts();
+      console.log("Producto actualizado con éxito:", this.products[index]);
+    } else {
+      console.error("Producto no encontrado.");
+    }
+  }
+
+  deleteProduct(id) {
+    const index = this.products.findIndex((p) => p.id === id);
+    if (index !== -1) {
+      this.products.splice(index, 1);
+      this.saveProducts();
+      console.log("Producto eliminado con éxito.");
+    } else {
+      console.error("Producto no encontrado.");
     }
   }
 }
@@ -76,3 +117,12 @@ console.log("Producto con ID 1:", productById1);
 // Prueba 6: Buscar un producto por ID (no encontrar)
 const productById2 = productManager.getProductById(999); // ID que no existe
 console.log("Producto con ID 999:", productById2);
+
+// Prueba 7: Actualizar un producto
+productManager.updateProduct(1, {
+  title: "Producto actualizado",
+  price: 250,
+});
+
+// Prueba 8: Eliminar un producto
+productManager.deleteProduct(1);
