@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Producto 1",
+    "description": "Este es el producto número 1",
+    "price": 100,
+    "thumbnail": "imagen1.jpg",
+    "code": "prod001",
+    "stock": 50,
+    "id": 1
+  },
+  {
+    "title": "Producto 2",
+    "description": "Este es el producto número 2",
+    "price": 150,
+    "thumbnail": "imagen2.jpg",
+    "code": "prod002",
+    "stock": 30,
+    "id": 2
+  },
+  {
+    "title": "Producto 3",
+    "description": "Este es el producto número 3",
+    "price": 75,
+    "thumbnail": "imagen3.jpg",
+    "code": "prod003",
+    "stock": 20,
+    "id": 3
+  },
+  {
+    "title": "Producto 4",
+    "description": "Este es el producto número 4",
+    "price": 200,
+    "thumbnail": "imagen4.jpg",
+    "code": "prod004",
+    "stock": 40,
+    "id": 4
+  },
+  {
+    "title": "Producto 5",
+    "description": "Este es el producto número 5",
+    "price": 120,
+    "thumbnail": "imagen5.jpg",
+    "code": "prod005",
+    "stock": 25,
+    "id": 5
+  },
+  {
+    "title": "Producto 6",
+    "description": "Este es el producto número 6",
+    "price": 180,
+    "thumbnail": "imagen6.jpg",
+    "code": "prod006",
+    "stock": 15,
+    "id": 6
+  },
+  {
+    "title": "Producto 7",
+    "description": "Este es el producto número 7",
+    "price": 90,
+    "thumbnail": "imagen7.jpg",
+    "code": "prod007",
+    "stock": 35,
+    "id": 7
+  },
+  {
+    "title": "Producto 8",
+    "description": "Este es el producto número 8",
+    "price": 160,
+    "thumbnail": "imagen8.jpg",
+    "code": "prod008",
+    "stock": 10,
+    "id": 8
+  },
+  {
+    "title": "Producto 9",
+    "description": "Este es el producto número 9",
+    "price": 140,
+    "thumbnail": "imagen9.jpg",
+    "code": "prod009",
+    "stock": 22,
+    "id": 9
+  },
+  {
+    "title": "Producto 10",
+    "description": "Este es el producto número 10",
+    "price": 250,
+    "thumbnail": "imagen10.jpg",
+    "code": "prod010",
+    "stock": 18,
+    "id": 10
+  }
+]
