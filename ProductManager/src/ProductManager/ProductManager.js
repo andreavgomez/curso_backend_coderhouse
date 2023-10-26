@@ -1,10 +1,18 @@
 const fs = require('fs').promises; // Uso promesas para leer y escribir archivos
+const { v4: uuidv4 } = require('uuid'); // Importa uuid
 
 class ProductManager {
+  // constructor(filePath) {
+  //   this.filePath = filePath;
+  //   this.products = [];
+  // }
+
   constructor(filePath) {
     this.filePath = filePath;
+    this.products = [];
+    this.loadProducts(); // Carga los productos al crear una instancia
   }
-
+  
   async loadProducts() {
     try {
       const data = await fs.readFile(this.filePath, 'utf8');
@@ -20,7 +28,7 @@ class ProductManager {
   }
 
   async addProduct(product) {
-    if (!product.title || !product.description || !product.price || !product.thumbnail || !product.code || !product.stock) {
+    if (!product.title || !product.description || !product.price || !product.code || !product.stock) {
       console.error("Todos los campos son obligatorios.");
       return;
     }
@@ -30,10 +38,11 @@ class ProductManager {
       return;
     }
 
-    const id = this.generateUniqueId();
-    this.products.push({ ...product, id });
+    product.id = uuidv4(); // Genera un nuevo ID único
+    product.status = true; // Establece el estado como verdadero por defecto
+    this.products.push(product);
     await this.saveProducts();
-    console.log("Producto agregado con éxito:", { ...product, id });
+    console.log("Producto agregado con éxito:", product);
   }
 
   generateUniqueId() {
