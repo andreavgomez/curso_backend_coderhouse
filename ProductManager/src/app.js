@@ -28,6 +28,7 @@ productsRouter.get('/', async (req, res) => {
       res.json(limitedProducts);
     }
   } catch (error) {
+    console.error('Error al obtener los productos:', error);
     res.status(500).json({ error: 'Error al obtener los productos' });
   }
 });
@@ -87,6 +88,7 @@ cartsRouter.get('/', async (req, res) => {
     const carts = await cartManager.getCarts();
     res.json(carts);
   } catch (error) {
+    console.error('Error al obtener los carritos:', error); 
     res.status(500).json({ error: 'Error al obtener los carritos' });
   }
 });

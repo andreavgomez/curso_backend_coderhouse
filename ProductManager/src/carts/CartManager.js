@@ -2,29 +2,38 @@ const fs = require('fs').promises;
 const { v4: uuidv4 } = require('uuid');
 
 class CartManager {
-//   constructor(filePath) {
-//     this.filePath = filePath;
-//     this.carts = [];
-//   }
+  //   constructor(filePath) {
+  //     this.filePath = filePath;
+  //     this.carts = [];
+  //   }
 
   constructor(filePath) {
     this.filePath = filePath;
     this.carts = [];
     this.loadCarts(); // Carga los carritos al crear una instancia
-  }  
+  }
 
   async loadCarts() {
     try {
       const data = await fs.readFile(this.filePath, 'utf8');
       this.carts = JSON.parse(data);
     } catch (error) {
+      console.error('Error al cargar carritos:', error);
       this.carts = [];
     }
   }
 
+  async getCarts() {
+    return this.carts;
+  }  
+
   async saveCarts() {
     const data = JSON.stringify(this.carts, null, 2);
-    await fs.writeFile(this.filePath, data, 'utf8');
+    try {
+      await fs.writeFile(this.filePath, data, 'utf8');
+    } catch (error) {
+      console.error('Error al guardar carritos:', error); // Imprime el error
+    }
   }
 
   async createCart() {
@@ -34,7 +43,11 @@ class CartManager {
     };
 
     this.carts.push(cart);
-    await this.saveCarts();
+    try {
+      await this.saveCarts();
+    } catch (error) {
+      console.error('Error al crear un carrito:', error); // Imprime el error
+    }
     return cart;
   }
 
