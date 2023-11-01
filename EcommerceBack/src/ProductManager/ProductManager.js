@@ -1,5 +1,5 @@
-const fs = require('fs').promises; // Uso promesas para leer y escribir archivos
-const { v4: uuidv4 } = require('uuid'); // Importa uuid
+import { promises as fs } from 'fs'; 
+import { v4 as uuidv4 } from 'uuid';
 
 class ProductManager {
   // constructor(filePath) {
@@ -85,4 +85,5 @@ class ProductManager {
   }
 }
 
-module.exports = ProductManager;
+// module.exports = ProductManager;
+export default ProductManager;

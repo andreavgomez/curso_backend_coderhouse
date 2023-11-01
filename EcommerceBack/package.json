@@ -1,8 +1,9 @@
 {
-  "name": "productmanager",
+  "name": "EcommerceBack",
   "version": "0.0.1",
-  "description": "Pre Entrega 1 del proyecto",
-  "main": "src/app.js",
+  "description": "Desafio 4",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
     "start": "node .",
     "dev": "nodemon ."
@@ -13,6 +14,7 @@
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.7.2",
     "uuid": "^9.0.1"
   }
 }

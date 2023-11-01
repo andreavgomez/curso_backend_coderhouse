@@ -1,5 +1,5 @@
-const fs = require('fs').promises;
-const { v4: uuidv4 } = require('uuid');
+import { promises as fs } from 'fs';
+import { v4 as uuidv4 } from 'uuid';
 
 class CartManager {
   //   constructor(filePath) {
@@ -46,7 +46,7 @@ class CartManager {
     try {
       await this.saveCarts();
     } catch (error) {
-      console.error('Error al crear un carrito:', error); // Imprime el error
+      console.error('Error al crear un carrito:', error);
     }
     return cart;
   }
@@ -76,4 +76,5 @@ class CartManager {
   }
 }
 
-module.exports = CartManager;
+// module.exports = CartManager;
+export default CartManager;
