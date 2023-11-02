@@ -88,29 +88,5 @@
     "code": "prod010",
     "stock": 200,
     "id": "10"
-  },
-  {
-    "title": "gggg",
-    "description": "hhh",
-    "price": 120,
-    "id": "11"
-  },
-  {
-    "title": "AAAAA",
-    "description": "DDDD",
-    "price": 11111,
-    "id": "12"
-  },
-  {
-    "title": "ggg",
-    "description": "ggg",
-    "price": 444,
-    "id": "13"
-  },
-  {
-    "title": "yyyy",
-    "description": "zzzz",
-    "price": 99999,
-    "id": "14"
   }
 ]
