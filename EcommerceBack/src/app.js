@@ -6,6 +6,7 @@ import { __dirname } from './utils.js';
 import indexRouter from './routers/index.router.js';
 import productsRouter from './routers/products.router.js';
 import cartsRouter from './routers/carts.router.js';
+import realtimeProductsRouter from './routers/realtimeproducts.router.js';
 
 const app = express();
 
@@ -19,7 +20,11 @@ app.set('view engine', 'handlebars');
 
 app.use('/', indexRouter);
 app.use('/api/products', productsRouter);
+// app.use('/', productsRouter);
 app.use('/api/carts', cartsRouter);
+// app.use('/realtimeproducts', realtimeProductsRouter);
+app.use('/realtime', realtimeProductsRouter);
+
 
 app.use((error, req, res, next) => {
   const message = `Ah ocurrido un error desconocido: ${error.message}`;

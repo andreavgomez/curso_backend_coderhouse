@@ -1,0 +1,28 @@
+<h1>Lista de Productos (Tiempo Real)</h1>
+<ul id="product-list">
+  {{#each products}}
+    <li>{{this.title}} - {{this.description}} - ${{this.price}} <a href="#" onclick="deleteProduct('{{this.id}}')">Eliminar</a></li>
+  {{/each}}
+</ul>
+<form onsubmit="addProduct(); return false;">
+  <input type="text" id="title" placeholder="Título">
+  <input type="text" id="description" placeholder="Descripción">
+  <input type="number" id="price" placeholder="Precio">
+  <button type="submit">Agregar Producto</button>
+</form>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+<script>
+  function addProduct() {
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const price = parseFloat(document.getElementById('price').value);
+    if (title && description && price) {
+      socket.emit('add-product', { title, description, price });
+    }
+  }
+
+  function deleteProduct(productId) {
+    socket.emit('delete-product', productId);
+  }
+</script>
