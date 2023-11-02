@@ -23,7 +23,7 @@ app.use('/api/products', productsRouter);
 // app.use('/', productsRouter);
 app.use('/api/carts', cartsRouter);
 // app.use('/realtimeproducts', realtimeProductsRouter);
-app.use('/realtime', realtimeProductsRouter);
+app.use('/api/realtime', realtimeProductsRouter);
 
 
 app.use((error, req, res, next) => {
