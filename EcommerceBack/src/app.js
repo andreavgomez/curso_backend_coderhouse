@@ -20,11 +20,9 @@ app.set('view engine', 'handlebars');
 
 app.use('/', indexRouter);
 app.use('/api/products', productsRouter);
-// app.use('/', productsRouter);
 app.use('/api/carts', cartsRouter);
 // app.use('/realtimeproducts', realtimeProductsRouter);
-app.use('/api/realtime', realtimeProductsRouter);
-
+app.use('/api/realtimeproducts', realtimeProductsRouter);
 
 app.use((error, req, res, next) => {
   const message = `Ah ocurrido un error desconocido: ${error.message}`;

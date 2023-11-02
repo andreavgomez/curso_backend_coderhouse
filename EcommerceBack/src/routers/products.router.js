@@ -2,13 +2,9 @@ import { Router } from 'express';
 import { promises as fs } from 'fs';
 import path from 'path'; 
 import ProductManager from '../ProductManager/ProductManager.js';
-// import realtimeProductsRouter from './realtimeproducts.router';
 
 const productsRouter = Router();
 const productManager = new ProductManager('src/products.json');  // Crea una instancia de ProductManager
-
-// // Configura la ruta para la vista en tiempo real de productos
-// productsRouter.use('/realtimeproducts', realtimeProductsRouter);
 
 // Ruta para obtener todos los productos
 productsRouter.get('/', async (req, res) => {
@@ -52,8 +48,8 @@ productsRouter.post('/', async (req, res) => {
   }
 });
 
-// Nueva ruta para emitir la lista de productos a través de WebSocket
-productsRouter.get('/realtime', async (req, res) => {
+// Ruta para emitir la lista de productos a través de WebSocket
+productsRouter.get('/realtimeproducts', async (req, res) => {
   try {
     const data = await fs.readFile('src/products.json', 'utf8');
     const products = JSON.parse(data);
